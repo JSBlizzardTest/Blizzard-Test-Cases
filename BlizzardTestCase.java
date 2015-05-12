@@ -20,7 +20,7 @@ public class BlizzardTestCase {
 			String itemSetAPIResponse = "";
 			String itemAPIResponse = "";
 			
-			try { 
+			try { //Pulling Item Set from API for given id.
 				itemSetAPIResponse = getItemSetAPIResponse(id);
 			} catch (FileNotFoundException e) {
 				break; //This specific id doesn't exist. Continuing on.
@@ -32,7 +32,7 @@ public class BlizzardTestCase {
 			JSONArray itemSetChildren = new JSONArray(itemSetJson.get("items").toString());
 			JSONArray itemSetBonuses = new JSONArray(itemSetJson.get("setBonuses").toString());
 			
-			try { 
+			try { //Getting first listed item that was found in the Item Set. 
 				itemAPIResponse = getItemAPIResponse(itemSetChildren.getInt(0)); 
 			} catch (FileNotFoundException e) {
 				return "FAIL: Listed child item does not exist. ItemSet ID: " + id + "; Item ID: " + itemSetChildren.getInt(0);
@@ -70,7 +70,7 @@ public class BlizzardTestCase {
 			String itemSetAPIResponse = "";
 			String itemAPIResponse = "";
 			
-			try { 
+			try { //Retrieving given item set.
 				itemSetAPIResponse = getItemSetAPIResponse(id);
 			} catch (FileNotFoundException e) {
 				break; //This specific id doesn't exist. Continuing on.
